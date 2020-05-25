@@ -165,6 +165,8 @@
             android:id="@+id/btn_add_to_cart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:enabled="@{ viewModel.addToCartButtonEnabled}"
+            android:onClick="@{ viewModel::onClick}"
             android:text="@string/add_to_cart"
             app:layout_constraintBottom_toBottomOf="parent" />
 

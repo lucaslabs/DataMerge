@@ -15,10 +15,9 @@ class ProductProvider {
                 context?.getString(R.string.product_short_description),
                 rating = 4.8,
                 price = 99.9,
-                discountPercentage = null,
+                discountPercentage = 10,
                 description = context?.getString(R.string.product_content_value),
                 ingredients = context?.getString(R.string.product_content_value),
-                isOnSale = false,
                 isOutOfStock = false
             )
         }

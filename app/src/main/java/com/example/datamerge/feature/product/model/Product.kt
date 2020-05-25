@@ -10,6 +10,5 @@ data class Product(
     val discountPercentage: Int?,
     val description: String?,
     val ingredients: String?,
-    val isOnSale: Boolean,
     val isOutOfStock: Boolean
 )
