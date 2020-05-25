@@ -24,7 +24,7 @@ fun setImageViewResource(view: ImageView, resId: Int) {
 
 class ProductDetailViewModel(private val product: Product) : BaseViewModel(), View.OnClickListener {
 
-    private var addToCartButtonEnabled = !product.isOutOfStock
+    private var addToCartButtonEnabled = true
 
     @Bindable
     var image = product.imageResId

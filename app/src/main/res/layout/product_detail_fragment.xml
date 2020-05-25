@@ -86,7 +86,6 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv_product_name"
                     tools:text="@string/product_rating" />
 
-
                 <TextView
                     android:id="@+id/tv_price"
                     android:layout_width="wrap_content"
