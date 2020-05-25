@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Data Merge app</string>
+    <string name="product_manufacturer">Lays</string>
+    <string name="product_name">Papas fritas clásicas</string>
+    <string name="product_short_description">28 gramos</string>
+    <string name="product_rating">4.8</string>
+    <string name="product_price">$85</string>
+    <string name="product_discount"><strike>$100</strike></string>
+    <string name="product_description">Descripción</string>
+    <string name="product_content_value">Bacon ipsum dolor amet shoulder chuck meatball capicola, flank boudin rump. Pork short ribs flank andouille, short loin tail ball tip chuck. Burgdoggen flank pancetta cupim chislic turducken drumstick, tongue tail ribeye pastrami buffalo ground round brisket boudin. Rump pork fatback strip steak cow bacon. Andouille fatback turducken swine short loin t-bone boudin meatball shank flank sirloin kielbasa tail beef ribs. Turkey kevin pork chop pork belly. Pork chop doner turducken kielbasa, fatback salami filet mignon venison.</string>
+    <string name="product_ingredients">Ingredientes</string>
+    <string name="add_to_cart">Agregar al carrito</string>
+</resources>
