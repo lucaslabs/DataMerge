@@ -4,9 +4,7 @@ import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.StrikethroughSpan
 import android.view.View
-import android.widget.ImageView
 import androidx.databinding.Bindable
-import androidx.databinding.BindingAdapter
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.datamerge.BR
@@ -16,18 +14,13 @@ import com.example.datamerge.feature.product.model.Product
 import java.math.RoundingMode
 import java.text.DecimalFormat
 
-
-@BindingAdapter("android:src")
-fun setImageViewResource(view: ImageView, resId: Int) {
-    view.setImageResource(resId)
-}
-
 class ProductDetailViewModel(private val product: Product) : BaseViewModel(), View.OnClickListener {
 
     private var addToCartButtonEnabled = true
+    private var isProductInCart = false
 
     @Bindable
-    var image = product.imageResId
+    var imageUrl = product.imageUrl
 
     @Bindable
     var manufacturer = product.manufacturer
@@ -43,11 +36,14 @@ class ProductDetailViewModel(private val product: Product) : BaseViewModel(), Vi
 
     @Bindable
     fun getPrice(): String {
-        return product.discountPercentage?.let {
-            formatToDecimal(product.price - (product.price * product.discountPercentage / 100))
+        var price = ""
+        product.discountPercentage?.let {
+            price =
+                formatToDecimal(product.price - (product.price * product.discountPercentage / 100))
         } ?: run {
-            "\$${product.price}"
+            price = product.price.toString()
         }
+        return "\$$price"
     }
 
     @Bindable
@@ -72,6 +68,11 @@ class ProductDetailViewModel(private val product: Product) : BaseViewModel(), Vi
     @Bindable
     fun getAddToCartButtonEnabled() = addToCartButtonEnabled
 
+    @Bindable
+    fun getAddToCartButtonText(): Int {
+        return if (!isProductInCart) R.string.btn_add_to_cart else R.string.btn_added_to_cart
+    }
+
     class ProductDetailViewModelFactory(private val product: Product) :
         ViewModelProvider.NewInstanceFactory() {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T =
@@ -81,10 +82,16 @@ class ProductDetailViewModel(private val product: Product) : BaseViewModel(), Vi
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.btn_add_to_cart -> {
-                addToCartButtonEnabled = false
-                notifyPropertyChanged(BR.addToCartButtonEnabled)
+                addToCart()
             }
         }
+    }
+
+    private fun addToCart() {
+        addToCartButtonEnabled = false
+        isProductInCart = true
+        notifyPropertyChanged(BR.addToCartButtonEnabled)
+        notifyPropertyChanged(BR.addToCartButtonText)
     }
 
     private fun formatToDecimal(value: Double): String {

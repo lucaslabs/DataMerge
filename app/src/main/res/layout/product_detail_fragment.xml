@@ -32,11 +32,11 @@
                     android:layout_width="250dp"
                     android:layout_height="250dp"
                     android:layout_marginTop="36dp"
-                    android:src="@{ viewModel.image }"
+                    app:imageUrl="@{ viewModel.imageUrl }"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:src="@drawable/lays" />
+                    tools:src="@drawable/product_placeholder" />
 
                 <TextView
                     android:id="@+id/tv_manufacturer"
@@ -47,7 +47,7 @@
                     android:text="@{ viewModel.manufacturer }"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/iv_product"
-                    tools:text="@string/product_manufacturer" />
+                    tools:text="Beanfields" />
 
                 <TextView
                     android:id="@+id/tv_product_name"
@@ -60,7 +60,7 @@
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_manufacturer"
-                    tools:text="@string/product_name" />
+                    tools:text="Jalapeño Nacho Bean Chips" />
 
                 <TextView
                     android:id="@+id/tv_short_description"
@@ -71,7 +71,7 @@
                     android:text="@{ viewModel.shortDescription }"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_product_name"
-                    tools:text="@string/product_short_description" />
+                    tools:text="5.5 oz bag" />
 
                 <TextView
                     android:id="@+id/tv_rating"
@@ -84,7 +84,7 @@
                     android:text="@{ viewModel.rating }"
                     app:layout_constraintStart_toEndOf="@+id/tv_short_description"
                     app:layout_constraintTop_toBottomOf="@+id/tv_product_name"
-                    tools:text="@string/product_rating" />
+                    tools:text="4.62" />
 
                 <TextView
                     android:id="@+id/tv_price"
@@ -98,7 +98,7 @@
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_rating"
-                    tools:text="@string/product_price" />
+                    tools:text="$2.99" />
 
                 <TextView
                     android:id="@+id/tv_discount"
@@ -109,7 +109,7 @@
                     android:text="@{ viewModel.discount }"
                     app:layout_constraintStart_toEndOf="@+id/tv_price"
                     app:layout_constraintTop_toBottomOf="@+id/tv_short_description"
-                    tools:text="@string/product_discount" />
+                    tools:text="$3.79" />
 
                 <TextView
                     android:id="@+id/tv_description_title"
@@ -117,7 +117,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="12dp"
-                    android:text="@string/product_description"
+                    android:text="@string/product_description_title"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_discount" />
@@ -132,7 +132,7 @@
                     android:text="@{ viewModel.description }"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_description_title"
-                    tools:text="@string/product_content_value" />
+                    tools:text="@string/product_content_ipsum" />
 
                 <TextView
                     android:id="@+id/tv_ingredients_title"
@@ -140,7 +140,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="8dp"
-                    android:text="@string/product_ingredients"
+                    android:text="@string/product_ingredients_title"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_description" />
@@ -156,7 +156,7 @@
                     android:text="@{ viewModel.ingredients }"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_ingredients_title"
-                    tools:text="@string/product_content_value" />
+                    tools:text="@string/product_content_ipsum" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
 
@@ -166,8 +166,9 @@
             android:layout_height="wrap_content"
             android:enabled="@{ viewModel.addToCartButtonEnabled}"
             android:onClick="@{ viewModel::onClick}"
-            android:text="@string/add_to_cart"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            android:text="@{ viewModel.addToCartButtonText }"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="Add to cart" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

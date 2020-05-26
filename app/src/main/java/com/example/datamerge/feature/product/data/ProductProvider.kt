@@ -1,23 +1,21 @@
 package com.example.datamerge.feature.product.data
 
-import android.content.Context
-import com.example.datamerge.R
 import com.example.datamerge.feature.product.model.Product
 
 class ProductProvider {
 
     companion object {
-        fun getProduct(context: Context?): Product {
+        fun getProduct(): Product {
             return Product(
-                R.drawable.lays,
-                context?.getString(R.string.product_manufacturer),
-                context?.getString(R.string.product_name),
-                context?.getString(R.string.product_short_description),
-                rating = 4.8,
-                price = 99.9,
-                discountPercentage = 10,
-                description = context?.getString(R.string.product_content_value),
-                ingredients = context?.getString(R.string.product_content_value),
+                imageUrl = "https://img.thrivemarket.com/store/full/8/5/852565003305-1_1.jpg",
+                manufacturer = "Beanfields",
+                name = "Jalapeño Nacho Bean Chips",
+                shortDescription = "5.5 oz bag",
+                rating = 4.62,
+                price = 3.79,
+                discountPercentage = null,
+                description = "Traditional potato chips are no match for Beanfields Jalapeno Nacho Bean and Rice Chips, which are corn-free, and made without a single one of the eight ingredients recognized by the FDA as potential allergens. These spicy, cheesy crisps are also gluten-free, vegan, and contain no GMOs or added sugar. Plus, they pack 150 percent more protein, 200 percent more fiber, and 44 percent less fat than your average tortilla chip. So go ahead and treat yourself to a snack without any of the guilt.",
+                ingredients = "Black Beans, Navy Beans, Brown Rice, Safflower or Sunflower Oil, Salt, Jalapeño Pepper.",
                 isOutOfStock = false
             )
         }

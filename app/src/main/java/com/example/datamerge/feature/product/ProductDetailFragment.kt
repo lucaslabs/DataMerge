@@ -20,7 +20,7 @@ class ProductDetailFragment : Fragment() {
 
     private val viewModel: ProductDetailViewModel by viewModels {
         ProductDetailViewModel.ProductDetailViewModelFactory(
-            ProductProvider.getProduct(context)
+            ProductProvider.getProduct()
         )
     }
 
