@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="QuantityStepperViewBinding" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/dark_green"
+        android:minWidth="145dp"
+        android:minHeight="48dp"
+        android:orientation="horizontal"
+        tools:layout_height="48dp">
+
+        <ImageButton
+            android:id="@+id/btn_decrement"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".40"
+            android:background="@color/dark_green"
+            android:contentDescription="Remove item"
+            android:src="@drawable/ic_minus" />
+
+        <TextView
+            android:id="@+id/tv_quantity"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".20"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            tools:text="99" />
+
+        <ImageButton
+            android:id="@+id/btn_increment"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".40"
+            android:background="@color/dark_green"
+            android:contentDescription="Add item"
+            android:src="@drawable/ic_plus" />
+    </LinearLayout>
+</layout>

@@ -10,15 +10,19 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.datamerge.BR
 import com.example.datamerge.R
 import com.example.datamerge.base.BaseViewModel
+import com.example.datamerge.binding.widget.QuantityStepperView
 import com.example.datamerge.feature.product.model.Product
 import java.math.RoundingMode
 import java.text.DecimalFormat
 
-class ProductDetailViewModel(private val product: Product) : BaseViewModel(), View.OnClickListener {
+class ProductDetailViewModel(private val product: Product) : BaseViewModel(), View.OnClickListener,
+    QuantityStepperView.OnQuantityStepperClickListener {
 
     private var addToCartButtonEnabled = true
     private var isProductInCart = false
+    private var qtyStepperEnabled = true
 
+    // region Bindable
     @Bindable
     var imageUrl = product.imageUrl
 
@@ -69,14 +73,31 @@ class ProductDetailViewModel(private val product: Product) : BaseViewModel(), Vi
     fun getAddToCartButtonEnabled() = addToCartButtonEnabled
 
     @Bindable
-    fun getAddToCartButtonText(): Int {
-        return if (!isProductInCart) R.string.btn_add_to_cart else R.string.btn_added_to_cart
+    fun getAddToCartButtonVisibility(): Int {
+        return if (!isProductInCart) View.VISIBLE else View.GONE
     }
 
-    class ProductDetailViewModelFactory(private val product: Product) :
-        ViewModelProvider.NewInstanceFactory() {
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T =
-            ProductDetailViewModel(product) as T
+    @Bindable
+    fun getQuantityStepperEnabled() = qtyStepperEnabled
+
+    @Bindable
+    fun getQuantityStepperVisibility(): Int {
+        return if (isProductInCart) View.VISIBLE else View.GONE
+    }
+
+    @Bindable
+    fun getQuantityStepperMaximum() = product.maxQuantity
+
+    @Bindable
+    fun getQuantityStepperMinimum() = product.minQuantity
+
+    @Bindable
+    fun getQuantityStepperQuantity() = product.minQuantity
+    // endregion
+
+    fun setQuantityStepperEnabled(enabled: Boolean) {
+        qtyStepperEnabled = enabled
+        notifyPropertyChanged(BR.quantityStepperEnabled)
     }
 
     override fun onClick(v: View?) {
@@ -87,16 +108,40 @@ class ProductDetailViewModel(private val product: Product) : BaseViewModel(), Vi
         }
     }
 
+    override fun onIncrementClick(v: View?, quantity: Int) {
+        // TODO Call to service to increment quantity
+    }
+
+    override fun onDecrementClick(v: View?, quantity: Int) {
+        // TODO Call to service to increment quantity
+        if (quantity == 0) {
+            // TODO Call to service to remove product
+            toggleButtonVisibility(true)
+        }
+    }
+
     private fun addToCart() {
-        addToCartButtonEnabled = false
-        isProductInCart = true
+        toggleButtonVisibility(false)
+        notifyPropertyChanged(BR.quantityStepperQuantity)
+    }
+
+    private fun toggleButtonVisibility(addToCartEnabled: Boolean) {
+        addToCartButtonEnabled = addToCartEnabled
+        isProductInCart = !addToCartEnabled
         notifyPropertyChanged(BR.addToCartButtonEnabled)
-        notifyPropertyChanged(BR.addToCartButtonText)
+        notifyPropertyChanged(BR.addToCartButtonVisibility)
+        notifyPropertyChanged(BR.quantityStepperVisibility)
     }
 
     private fun formatToDecimal(value: Double): String {
         val df = DecimalFormat("#.##")
         df.roundingMode = RoundingMode.CEILING
         return df.format(value)
+    }
+
+    class ProductDetailViewModelFactory(private val product: Product) :
+        ViewModelProvider.NewInstanceFactory() {
+        override fun <T : ViewModel?> create(modelClass: Class<T>): T =
+            ProductDetailViewModel(product) as T
     }
 }

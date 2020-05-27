@@ -8,6 +8,8 @@ data class Product(
     val rating: Double,
     val price: Double,
     val discountPercentage: Int?,
+    val maxQuantity: Int,
+    val minQuantity: Int,
     val description: String?,
     val ingredients: String?,
     val isOutOfStock: Boolean

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -166,9 +167,23 @@
             android:layout_height="wrap_content"
             android:enabled="@{ viewModel.addToCartButtonEnabled}"
             android:onClick="@{ viewModel::onClick}"
-            android:text="@{ viewModel.addToCartButtonText }"
+            android:text="@string/btn_add_to_cart"
+            android:visibility="@{ viewModel.addToCartButtonVisibility}"
             app:layout_constraintBottom_toBottomOf="parent"
-            tools:text="Add to cart" />
+            tools:text="@string/btn_add_to_cart" />
+
+        <com.example.datamerge.binding.widget.QuantityStepperView
+            android:id="@+id/quantity_stepper"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:enabled="@{ viewModel.quantityStepperEnabled }"
+            android:visibility="@{ viewModel.quantityStepperVisibility }"
+            app:layout_constraintBottom_toBottomOf="parent"
+            bind:listener="@{ viewModel }"
+            bind:maximumLimit="@{ viewModel.quantityStepperMaximum }"
+            bind:minimumLimit="@{ viewModel.quantityStepperMinimum }"
+            bind:quantity="@{ viewModel.quantityStepperQuantity }"
+            tools:visibility="gone" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
