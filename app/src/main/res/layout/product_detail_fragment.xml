@@ -172,6 +172,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             tools:text="@string/btn_add_to_cart" />
 
+        <!-- Binding Methods example -->
         <com.example.datamerge.binding.widget.QuantityStepperView
             android:id="@+id/quantity_stepper"
             android:layout_width="match_parent"

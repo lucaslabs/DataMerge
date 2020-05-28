@@ -1,6 +1,8 @@
 package com.example.datamerge.feature.product.data
 
+import com.example.datamerge.R
 import com.example.datamerge.feature.product.model.Product
+import kotlinx.android.synthetic.main.product_detail_fragment.view.*
 
 class ProductProvider {
 
@@ -9,7 +11,7 @@ class ProductProvider {
             return Product(
                 imageUrl = "https://img.thrivemarket.com/store/full/8/5/852565003305-1_1.jpg",
                 manufacturer = "Beanfields",
-                name = "Jalapeño Nacho Bean Chips",
+                nameResId = R.string.product_name,
                 shortDescription = "5.5 oz bag",
                 rating = 4.62,
                 price = 3.79,

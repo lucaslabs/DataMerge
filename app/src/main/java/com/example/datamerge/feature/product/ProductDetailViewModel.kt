@@ -24,13 +24,13 @@ class ProductDetailViewModel(private val product: Product) : BaseViewModel(), Vi
 
     // region Bindable
     @Bindable
-    var imageUrl = product.imageUrl
+    var imageUrl = product.imageUrl // Binding Adapter example
 
     @Bindable
     var manufacturer = product.manufacturer
 
     @Bindable
-    var name = product.name
+    var name = product.nameResId // Binding Adapter example
 
     @Bindable
     var shortDescription = product.shortDescription
