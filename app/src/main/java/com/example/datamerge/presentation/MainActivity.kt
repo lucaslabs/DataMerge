@@ -1,8 +1,9 @@
-package com.example.datamerge
+package com.example.datamerge.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.datamerge.feature.product.ProductDetailFragment
+import com.example.datamerge.R
+import com.example.datamerge.presentation.product_detail.ProductDetailFragment
 
 class MainActivity : AppCompatActivity() {
 

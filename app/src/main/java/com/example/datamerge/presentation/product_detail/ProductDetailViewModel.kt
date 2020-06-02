@@ -1,4 +1,4 @@
-package com.example.datamerge.feature.product
+package com.example.datamerge.presentation.product_detail
 
 import android.text.SpannableString
 import android.text.Spanned
@@ -9,9 +9,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.datamerge.BR
 import com.example.datamerge.R
-import com.example.datamerge.base.BaseViewModel
-import com.example.datamerge.binding.widget.QuantityStepperView
-import com.example.datamerge.feature.product.model.Product
+import com.example.datamerge.presentation.base.BaseViewModel
+import com.example.datamerge.presentation.binding.widget.QuantityStepperView
+import com.example.datamerge.data.Product
 import java.math.RoundingMode
 import java.text.DecimalFormat
 

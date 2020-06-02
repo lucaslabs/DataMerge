@@ -1,4 +1,4 @@
-package com.example.datamerge.feature.product.model
+package com.example.datamerge.data
 
 data class Product(
     val imageUrl: String,

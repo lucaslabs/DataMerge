@@ -1,4 +1,4 @@
-package com.example.datamerge.feature.product
+package com.example.datamerge.presentation.product_detail
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,8 +8,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.datamerge.R
+import com.example.datamerge.data.ProductProvider
 import com.example.datamerge.databinding.ProductDetailFragmentBinding
-import com.example.datamerge.feature.product.data.ProductProvider
 
 class ProductDetailFragment : Fragment() {
 

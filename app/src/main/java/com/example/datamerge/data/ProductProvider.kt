@@ -1,8 +1,6 @@
-package com.example.datamerge.feature.product.data
+package com.example.datamerge.data
 
 import com.example.datamerge.R
-import com.example.datamerge.feature.product.model.Product
-import kotlinx.android.synthetic.main.product_detail_fragment.view.*
 
 class ProductProvider {
 

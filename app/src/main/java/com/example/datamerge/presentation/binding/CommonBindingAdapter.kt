@@ -1,13 +1,11 @@
-package com.example.datamerge.binding
+package com.example.datamerge.presentation.binding
 
-import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.request.RequestListener
-import com.example.datamerge.R
-import com.example.datamerge.base.GlideApp
+import com.example.datamerge.presentation.base.GlideApp
 
 // Top Level Functions
 @BindingAdapter("android:text")

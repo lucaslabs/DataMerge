@@ -8,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.datamerge.feature.product.ProductDetailViewModel" />
+            type="com.example.datamerge.presentation.product_detail.ProductDetailViewModel" />
 
     </data>
 
@@ -173,7 +173,7 @@
             tools:text="@string/btn_add_to_cart" />
 
         <!-- Binding Methods example -->
-        <com.example.datamerge.binding.widget.QuantityStepperView
+        <com.example.datamerge.presentation.binding.widget.QuantityStepperView
             android:id="@+id/quantity_stepper"
             android:layout_width="match_parent"
             android:layout_height="48dp"

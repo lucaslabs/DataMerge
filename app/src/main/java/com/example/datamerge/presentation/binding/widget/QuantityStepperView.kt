@@ -1,4 +1,4 @@
-package com.example.datamerge.binding.widget
+package com.example.datamerge.presentation.binding.widget
 
 import android.content.Context
 import android.util.AttributeSet

@@ -1,4 +1,4 @@
-package com.example.datamerge.base
+package com.example.datamerge.presentation.base
 
 import androidx.databinding.Observable
 import androidx.databinding.PropertyChangeRegistry
