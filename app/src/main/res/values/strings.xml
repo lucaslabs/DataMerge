@@ -5,4 +5,5 @@
     <string name="product_ingredients_title">Ingredients</string>
     <string name="product_content_ipsum">Bacon ipsum dolor amet rump shankle sausage turkey salami jerky hamburger tail corned beef. Drumstick spare ribs tri-tip, doner beef pastrami pork jerky shoulder boudin. Hamburger landjaeger cow shank sirloin, rump pig. Ground round picanha ham hock shank cow. Ball tip cow spare ribs short loin pancetta cupim. Pork chop beef ribs cupim leberkas doner kevin strip steak.</string>
     <string name="btn_add_to_cart">Add to cart</string>
+    <string name="out_of_stock">Out of stock!</string>
 </resources>

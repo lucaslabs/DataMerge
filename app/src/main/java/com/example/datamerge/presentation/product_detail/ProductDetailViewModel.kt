@@ -9,9 +9,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.datamerge.BR
 import com.example.datamerge.R
+import com.example.datamerge.data.Product
 import com.example.datamerge.presentation.base.BaseViewModel
 import com.example.datamerge.presentation.binding.widget.QuantityStepperView
-import com.example.datamerge.data.Product
 import java.math.RoundingMode
 import java.text.DecimalFormat
 
@@ -41,9 +41,8 @@ class ProductDetailViewModel(private val product: Product) : BaseViewModel(), Vi
     @Bindable
     fun getPrice(): String {
         var price = ""
-        product.discountPercentage?.let {
-            price =
-                formatToDecimal(product.price - (product.price * product.discountPercentage / 100))
+        product.discountPercentage?.let { discount ->
+            price = formatToDecimal(product.price - (product.price * discount / 100))
         } ?: run {
             price = product.price.toString()
         }
