@@ -7,7 +7,7 @@
     <string name="btn_add_to_cart">Add to cart</string>
     <string name="product_availability">Availability: </string>
     <string name="out_of_stock">Out of stock!</string>
-    <string name="notify_product_in_stock">Notify me when this product is in stock</string>
+    <string name="notify_product_in_stock">Notify me when this product is in stock.</string>
     <string name="email">Email:</string>
     <string name="btn_notify">Notify</string>
 </resources>
