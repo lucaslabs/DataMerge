@@ -13,7 +13,7 @@ import com.example.datamerge.presentation.binding.widget.QuantityStepperView
 class ProductDetailViewModel(private val product: Product) : BaseViewModel(), View.OnClickListener,
     QuantityStepperView.OnQuantityStepperClickListener {
 
-    private var addToCartButtonEnabled = true
+    private var addToCartButtonEnabled = !product.isOutOfStock
     private var isProductInCart = false
     private var qtyStepperEnabled = true
 

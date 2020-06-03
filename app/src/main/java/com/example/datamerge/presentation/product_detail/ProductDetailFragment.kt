@@ -63,6 +63,7 @@ class ProductDetailFragment : Fragment() {
 
         // TODO Show Out of Stock adapter
 
+
         val productDescriptionAdapter = ProductDescriptionAdapter(getString(R.string.product_description_title), product.description)
         adapterList.add(productDescriptionAdapter)
 
