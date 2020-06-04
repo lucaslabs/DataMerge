@@ -1,7 +1,7 @@
 package com.example.datamerge.data
 
 data class Product(
-    val imageUrl: String,
+    val imagesUrl: List<String>,
     val manufacturer: String,
     val nameResId: Int,
     val shortDescription: String,

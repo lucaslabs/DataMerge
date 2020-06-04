@@ -13,10 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.datamerge.R
 import com.example.datamerge.data.ProductProvider
 import com.example.datamerge.databinding.ProductDetailFragmentBinding
-import com.example.datamerge.presentation.product_detail.adapter.ProductDescriptionAdapter
-import com.example.datamerge.presentation.product_detail.adapter.ProductGalleryAdapter
-import com.example.datamerge.presentation.product_detail.adapter.ProductOutOfStockAdapter
-import com.example.datamerge.presentation.product_detail.adapter.ProductPriceAdapter
+import com.example.datamerge.presentation.product_detail.adapter.*
 
 class ProductDetailFragment : Fragment() {
 
@@ -55,14 +52,15 @@ class ProductDetailFragment : Fragment() {
 
         val product = ProductProvider.getProduct()
 
-        val productGalleryAdapter = ProductGalleryAdapter(listOf(product.imageUrl, product.imageUrl))
+        val productImageAdapter = ProductImageAdapter(product.imagesUrl)
+
+        val productGalleryAdapter = ProductGalleryAdapter(productImageAdapter)
         val adapterList = mutableListOf<RecyclerView.Adapter<*>>(productGalleryAdapter)
 
         val productPriceAdapter = ProductPriceAdapter(product)
         adapterList.add(productPriceAdapter)
 
         // TODO Show Out of Stock adapter
-
 
         val productDescriptionAdapter = ProductDescriptionAdapter(getString(R.string.product_description_title), product.description)
         adapterList.add(productDescriptionAdapter)

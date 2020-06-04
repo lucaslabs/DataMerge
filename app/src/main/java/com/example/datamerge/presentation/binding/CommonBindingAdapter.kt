@@ -4,6 +4,7 @@ import android.graphics.drawable.Drawable
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.request.RequestListener
 import com.example.datamerge.presentation.base.GlideApp
 
@@ -14,9 +15,14 @@ fun setTextViewResource(view: TextView, resId: Int) {
 }
 
 @BindingAdapter(value = ["imageUrl", "imageRequestListener"], requireAll = false)
-fun setImageUrl(imageView: ImageView, url: String?, listener: RequestListener<Drawable?>?)  {
+fun setImageUrl(imageView: ImageView, url: String?, listener: RequestListener<Drawable?>?) {
     GlideApp.with(imageView)
         .load(url)
         .listener(listener)
         .into(imageView)
+}
+
+@BindingAdapter("adapter")
+fun setAdapter(view: RecyclerView, adapter: RecyclerView.Adapter<*>) {
+    view.adapter = adapter
 }

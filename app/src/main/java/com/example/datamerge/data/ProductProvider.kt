@@ -7,7 +7,10 @@ class ProductProvider {
     companion object {
         fun getProduct(): Product {
             return Product(
-                imageUrl = "https://img.thrivemarket.com/store/full/8/5/852565003305-1_1.jpg",
+                imagesUrl = listOf(
+                    "https://img.thrivemarket.com/store/full/8/5/852565003305-1_1.jpg",
+                    "https://img.thrivemarket.com/store/full/8/5/852565003305-2_1.jpg"
+                ),
                 manufacturer = "Beanfields",
                 nameResId = R.string.product_name,
                 shortDescription = "5.5 oz bag",

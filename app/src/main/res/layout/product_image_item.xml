@@ -7,7 +7,7 @@
 
         <variable
             name="viewState"
-            type="com.example.datamerge.presentation.product_detail.viewstate.ProductGalleryViewState" />
+            type="com.example.datamerge.presentation.product_detail.viewstate.ProductImageViewState" />
 
     </data>
 
@@ -15,20 +15,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_product_gallery"
+        <ImageView
+            android:id="@+id/iv_product"
             android:layout_width="250dp"
             android:layout_height="250dp"
             android:layout_marginTop="36dp"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            android:orientation="horizontal"
-            app:adapter="@{ viewState.adapter }"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:imageUrl="@{ viewState.imageUrl }"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/product_image_item" />
-
+            tools:src="@drawable/product_placeholder" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
