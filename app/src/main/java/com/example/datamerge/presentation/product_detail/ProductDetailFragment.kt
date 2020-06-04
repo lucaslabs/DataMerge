@@ -34,8 +34,7 @@ class ProductDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = DataBindingUtil.inflate(
-            inflater, R.layout.product_detail_fragment,
-            container, false
+            inflater, R.layout.product_detail_fragment, container, false
         )
         binding.viewModel = viewModel
         return binding.root
