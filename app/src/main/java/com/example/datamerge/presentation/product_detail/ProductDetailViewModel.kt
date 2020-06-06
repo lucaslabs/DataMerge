@@ -17,6 +17,7 @@ class ProductDetailViewModel(private val product: Product) : BaseViewModel(), Vi
     private var isProductInCart = false
     private var qtyStepperEnabled = true
 
+    // region Bindable
     @Bindable
     fun getAddToCartButtonEnabled() = addToCartButtonEnabled
 
