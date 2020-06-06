@@ -49,25 +49,25 @@ class ProductDetailFragment : Fragment() {
     private fun setupAdapters() {
         binding.rvProductDetail.layoutManager = LinearLayoutManager(activity)
 
+        val mergeAdapter = MergeAdapter()
+
         val product = ProductProvider.getProduct()
 
         val productImageAdapter = ProductImageAdapter(product.imagesUrl)
 
         val productGalleryAdapter = ProductGalleryAdapter(productImageAdapter)
-        val adapterList = mutableListOf<RecyclerView.Adapter<*>>(productGalleryAdapter)
+        mergeAdapter.addAdapter(productGalleryAdapter)
 
         val productPriceAdapter = ProductPriceAdapter(product)
-        adapterList.add(productPriceAdapter)
+        mergeAdapter.addAdapter(productPriceAdapter)
 
         // TODO Show Out of Stock adapter
 
         val productDescriptionAdapter = ProductDescriptionAdapter(getString(R.string.product_description_title), product.description)
-        adapterList.add(productDescriptionAdapter)
+        mergeAdapter.addAdapter(productDescriptionAdapter)
 
         val productIngredientsAdapter = ProductDescriptionAdapter(getString(R.string.product_ingredients_title), product.ingredients)
-        adapterList.add(productIngredientsAdapter)
-
-        val mergeAdapter = MergeAdapter(adapterList)
+        mergeAdapter.addAdapter(productIngredientsAdapter)
 
         binding.rvProductDetail.adapter = mergeAdapter
     }
