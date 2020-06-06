@@ -1,4 +1,4 @@
-package com.example.datamerge.presentation.binding
+package com.example.datamerge.presentation.base
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.example.datamerge.BR
-import com.example.datamerge.presentation.base.BaseViewState
 
 abstract class BaseBindingAdapter :
     RecyclerView.Adapter<BaseBindingAdapter.BaseBindingViewHolder>() {
