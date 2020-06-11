@@ -61,7 +61,9 @@ class ProductDetailFragment : Fragment() {
         val productPriceAdapter = ProductPriceAdapter(product)
         mergeAdapter.addAdapter(productPriceAdapter)
 
-        // TODO Show Out of Stock adapter
+        if(product.isOutOfStock) {
+            mergeAdapter.addAdapter(ProductOutOfStockAdapter())
+        }
 
         val productDescriptionAdapter = ProductDescriptionAdapter(getString(R.string.product_description_title), product.description)
         mergeAdapter.addAdapter(productDescriptionAdapter)
