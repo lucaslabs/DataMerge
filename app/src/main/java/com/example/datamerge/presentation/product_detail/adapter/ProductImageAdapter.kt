@@ -29,10 +29,6 @@ class ProductImageAdapter(private val imagesUrl: List<String>) :
     override fun onBindViewHolder(holder: ProductImageViewHolder, position: Int) {
         val viewState = ProductImageViewState(imagesUrl[position])
         holder.bind(viewState)
-
-        holder.itemView.setOnClickListener { view ->
-            Toast.makeText(view.context, "Clicked image $position", Toast.LENGTH_SHORT).show()
-        }
     }
 
     inner class ProductImageViewHolder(private val binding: ViewDataBinding) :
