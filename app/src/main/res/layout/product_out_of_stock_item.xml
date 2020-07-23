@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="viewState"
-            type="com.example.datamerge.presentation.product_detail.viewstate.ProductOutOfStockViewState" />
+            name="viewModel"
+            type="com.example.datamerge.presentation.product_detail.viewmodels.ProductOutOfStockViewModel" />
 
     </data>
 
@@ -43,7 +43,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="4dp"
             android:layout_marginRight="16dp"
-            android:text="@{ viewState.notifyText }"
+            android:text="@{ viewModel.notifyText }"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_title"
             tools:text="@string/notify_product_in_stock" />
@@ -73,7 +73,7 @@
             android:id="@+id/btn_notify"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{ viewState }"
+            android:onClick="@{ viewModel }"
             android:text="@string/btn_notify"
             app:layout_constraintStart_toEndOf="@+id/et_email"
             app:layout_constraintTop_toBottomOf="@+id/tv_notify" />
