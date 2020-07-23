@@ -25,11 +25,7 @@ class ProductOutOfStockViewModel : BaseViewModel(), View.OnClickListener {
         }
     }
 
-    fun validateEmail(email: String?) {
-        if (email.isNullOrEmpty()) {
-            _validateEmail.value = false
-        } else {
-            _validateEmail.value = EmailValidator.isValidEmail(email)
-        }
+    fun validateEmail(email: String) {
+        _validateEmail.value = EmailValidator.isValidEmail(email)
     }
 }
