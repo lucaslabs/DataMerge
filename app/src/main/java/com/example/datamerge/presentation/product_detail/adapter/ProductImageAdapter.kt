@@ -2,7 +2,6 @@ package com.example.datamerge.presentation.product_detail.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
@@ -19,8 +18,9 @@ class ProductImageAdapter(private val imagesUrl: List<String>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductImageViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        binding =
-            DataBindingUtil.inflate(layoutInflater, R.layout.product_image_item, parent, false)
+        binding = DataBindingUtil.inflate(
+            layoutInflater, R.layout.product_image_item, parent, false
+        )
         return ProductImageViewHolder(binding)
     }
 
