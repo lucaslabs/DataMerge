@@ -82,7 +82,7 @@ class ProductDetailViewModel(private val product: Product) : BaseViewModel(), Vi
         notifyPropertyChanged(BR.quantityStepperVisibility)
     }
 
-    class ProductDetailViewModelFactory(private val product: Product) :
+    class Factory(private val product: Product) :
         ViewModelProvider.NewInstanceFactory() {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T =
             ProductDetailViewModel(product) as T

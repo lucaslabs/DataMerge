@@ -9,7 +9,7 @@ import com.example.datamerge.BR
 import com.example.datamerge.R
 import com.example.datamerge.databinding.ProductImageItemBinding
 import com.example.datamerge.presentation.base.BaseViewState
-import com.example.datamerge.presentation.product_detail.viewstate.ProductImageViewState
+import com.example.datamerge.presentation.product_detail.viewstates.ProductImageViewState
 
 class ProductImageAdapter(private val imagesUrl: List<String>) :
     RecyclerView.Adapter<ProductImageAdapter.ProductImageViewHolder>() {
@@ -27,7 +27,7 @@ class ProductImageAdapter(private val imagesUrl: List<String>) :
     override fun getItemCount() = imagesUrl.size
 
     override fun onBindViewHolder(holder: ProductImageViewHolder, position: Int) {
-        val viewState = ProductImageViewState(imagesUrl[position])
+        val viewState = ProductImageViewState(imagesUrl[position], position)
         holder.bind(viewState)
     }
 

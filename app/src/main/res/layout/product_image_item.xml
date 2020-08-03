@@ -7,7 +7,7 @@
 
         <variable
             name="viewState"
-            type="com.example.datamerge.presentation.product_detail.viewstate.ProductImageViewState" />
+            type="com.example.datamerge.presentation.product_detail.viewstates.ProductImageViewState" />
 
     </data>
 
@@ -22,8 +22,8 @@
             android:layout_marginTop="36dp"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            app:imageUrl="@{ viewState.imageUrl }"
             android:onClick="@{ viewState }"
+            app:imageUrl="@{ viewState.imageUrl }"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

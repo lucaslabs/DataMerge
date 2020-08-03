@@ -14,8 +14,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.datamerge.R
 import com.example.datamerge.data.ProductProvider
 import com.example.datamerge.databinding.ProductDetailFragmentBinding
+import com.example.datamerge.databinding.ProductOutOfStockItemBinding
 import com.example.datamerge.presentation.product_detail.adapter.*
+import com.example.datamerge.presentation.product_detail.viewmodels.ProductDescriptionViewModel
+import com.example.datamerge.presentation.product_detail.viewmodels.ProductIngredientsViewModel
 import com.example.datamerge.presentation.product_detail.viewmodels.ProductOutOfStockViewModel
+import com.example.datamerge.presentation.product_detail.viewmodels.ProductPriceViewModel
+import com.example.datamerge.presentation.product_detail.viewstates.ProductGalleryViewState
 
 class ProductDetailFragment : Fragment() {
 
@@ -28,12 +33,18 @@ class ProductDetailFragment : Fragment() {
 
     // region ViewModels
     private val viewModel: ProductDetailViewModel by viewModels {
-        ProductDetailViewModel.ProductDetailViewModelFactory(
-            ProductProvider.getProduct()
-        )
+        ProductDetailViewModel.Factory(ProductProvider.getProduct())
     }
-
+    private val productPriceViewModel: ProductPriceViewModel by viewModels {
+        ProductPriceViewModel.Factory(ProductProvider.getProduct())
+    }
     private val productOutOfStockViewModel: ProductOutOfStockViewModel by viewModels()
+    private val productDescriptionViewModel: ProductDescriptionViewModel by viewModels {
+        ProductDescriptionViewModel.Factory(ProductProvider.getProduct())
+    }
+    private val productIngredientsViewModel: ProductIngredientsViewModel by viewModels {
+        ProductIngredientsViewModel.Factory(ProductProvider.getProduct())
+    }
     // endregion
 
     // region Adapters
@@ -67,10 +78,11 @@ class ProductDetailFragment : Fragment() {
 
         val productImageAdapter = ProductImageAdapter(product.imagesUrl)
 
-        val productGalleryAdapter = ProductGalleryAdapter(productImageAdapter)
+        val productGalleryViewState = ProductGalleryViewState(productImageAdapter)
+        val productGalleryAdapter = ProductGalleryAdapter(productGalleryViewState)
         concatAdapter.addAdapter(productGalleryAdapter)
 
-        val productPriceAdapter = ProductPriceAdapter(product)
+        val productPriceAdapter = ProductPriceAdapter(productPriceViewModel)
         concatAdapter.addAdapter(productPriceAdapter)
 
         productOutOfStockAdapter = ProductOutOfStockAdapter(productOutOfStockViewModel)
@@ -78,16 +90,10 @@ class ProductDetailFragment : Fragment() {
             concatAdapter.addAdapter(productOutOfStockAdapter)
         }
 
-        val productDescriptionAdapter = ProductDescriptionAdapter(
-            getString(R.string.product_description_title),
-            product.description
-        )
+        val productDescriptionAdapter = ProductDescriptionAdapter(productDescriptionViewModel)
         concatAdapter.addAdapter(productDescriptionAdapter)
 
-        val productIngredientsAdapter = ProductDescriptionAdapter(
-            getString(R.string.product_ingredients_title),
-            product.ingredients
-        )
+        val productIngredientsAdapter = ProductIngredientsAdapter(productIngredientsViewModel)
         concatAdapter.addAdapter(productIngredientsAdapter)
 
         binding.rvProductDetail.adapter = concatAdapter
@@ -95,22 +101,25 @@ class ProductDetailFragment : Fragment() {
 
     private fun setupObservers() {
         productOutOfStockViewModel.notifyMeClicked.observe(viewLifecycleOwner, Observer {
-            productOutOfStockViewModel.validateEmail(productOutOfStockAdapter.binding.etEmail.text.toString())
+            val productOutOfStockBinding =
+                productOutOfStockAdapter.binding as ProductOutOfStockItemBinding
+            productOutOfStockViewModel.validateEmail(productOutOfStockBinding.etEmail.text.toString())
         })
 
         productOutOfStockViewModel.validateEmail.observe(viewLifecycleOwner,
             Observer { validEmail ->
+                val productOutOfStockBinding =
+                    productOutOfStockAdapter.binding as ProductOutOfStockItemBinding
                 if (validEmail) {
                     // We got a valid user email, disable the notify section
-                    productOutOfStockAdapter.binding.btnNotify.isEnabled = false
-                    productOutOfStockAdapter.binding.etEmail.isEnabled = false
-                    val email = productOutOfStockAdapter.binding.etEmail.text.toString()
+                    productOutOfStockBinding.btnNotify.isEnabled = false
+                    productOutOfStockBinding.etEmail.isEnabled = false
+                    val email = productOutOfStockBinding.etEmail.text.toString()
                     Toast.makeText(
-                        activity,
-                        "We will notify you at $email", Toast.LENGTH_SHORT
+                        activity, getString(R.string.notify_email, email), Toast.LENGTH_SHORT
                     ).show()
                 } else {
-                    productOutOfStockAdapter.binding.etEmail.error = "Please enter a valid email."
+                    productOutOfStockBinding.etEmail.error = getString(R.string.notify_error)
                 }
             })
     }

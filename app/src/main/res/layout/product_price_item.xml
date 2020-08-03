@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="viewState"
-            type="com.example.datamerge.presentation.product_detail.viewstate.ProductPriceViewState" />
+            name="viewModel"
+            type="com.example.datamerge.presentation.product_detail.viewmodels.ProductPriceViewModel" />
 
     </data>
 
@@ -20,10 +20,11 @@
             android:id="@+id/tv_manufacturer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:text="@{ viewState.manufacturer }"
+            android:text="@{ viewModel.manufacturer }"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_product"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="Beanfields" />
 
         <TextView
@@ -33,7 +34,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="4dp"
-            android:text="@{ viewState.name }"
+            android:text="@{ viewModel.name }"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -44,9 +45,10 @@
             android:id="@+id/tv_short_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="4dp"
-            android:text="@{ viewState.shortDescription }"
+            android:text="@{ viewModel.shortDescription }"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_product_name"
             tools:text="5.5 oz bag" />
@@ -55,11 +57,13 @@
             android:id="@+id/tv_rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="4dp"
+            android:drawableStart="@drawable/star"
             android:drawableLeft="@drawable/star"
             android:drawablePadding="2dp"
-            android:text="@{ viewState.rating }"
+            android:text="@{ viewModel.rating }"
             app:layout_constraintStart_toEndOf="@+id/tv_short_description"
             app:layout_constraintTop_toBottomOf="@+id/tv_product_name"
             tools:text="4.62" />
@@ -71,7 +75,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
-            android:text="@{ viewState.price }"
+            android:text="@{ viewModel.price }"
             android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -82,9 +86,10 @@
             android:id="@+id/tv_discount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="14dp"
-            android:text="@{ viewState.discount }"
+            android:text="@{ viewModel.discount }"
             app:layout_constraintStart_toEndOf="@+id/tv_price"
             app:layout_constraintTop_toBottomOf="@+id/tv_short_description"
             tools:text="$3.79" />

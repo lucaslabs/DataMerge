@@ -10,4 +10,6 @@
     <string name="notify_product_in_stock">Notify me when this product is in stock.</string>
     <string name="email">Email:</string>
     <string name="btn_notify">Notify</string>
+    <string name="notify_error">Please enter a valid email.</string>
+    <string name="notify_email">We will notify you at %s</string>
 </resources>

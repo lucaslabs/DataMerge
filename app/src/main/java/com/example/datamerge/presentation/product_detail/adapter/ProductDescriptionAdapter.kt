@@ -1,13 +1,8 @@
 package com.example.datamerge.presentation.product_detail.adapter
 
 import com.example.datamerge.R
-import com.example.datamerge.presentation.base.BaseBindingAdapter
-import com.example.datamerge.presentation.product_detail.viewstate.ProductDescriptionViewState
+import com.example.datamerge.presentation.base.BaseViewModelBindingAdapter
+import com.example.datamerge.presentation.product_detail.viewmodels.ProductDescriptionViewModel
 
-class ProductDescriptionAdapter(private val title: String, private val description: String) :
-    BaseBindingAdapter() {
-
-    override fun createViewState() = ProductDescriptionViewState(title, description)
-
-    override fun getLayoutResId() = R.layout.product_description_item
-}
+class ProductDescriptionAdapter(viewModel: ProductDescriptionViewModel) :
+    BaseViewModelBindingAdapter(viewModel, R.layout.product_description_item)

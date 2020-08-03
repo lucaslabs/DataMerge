@@ -1,15 +1,17 @@
-package com.example.datamerge.presentation.product_detail.viewstate
+package com.example.datamerge.presentation.product_detail.viewmodels
 
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.StrikethroughSpan
 import androidx.databinding.Bindable
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.example.datamerge.data.Product
-import com.example.datamerge.presentation.base.BaseViewState
+import com.example.datamerge.presentation.base.BaseViewModel
 import java.math.RoundingMode
 import java.text.DecimalFormat
 
-class ProductPriceViewState(private val product: Product) : BaseViewState() {
+class ProductPriceViewModel(private val product: Product) : BaseViewModel() {
 
     // region Bindable
     @Bindable
@@ -52,5 +54,11 @@ class ProductPriceViewState(private val product: Product) : BaseViewState() {
         val df = DecimalFormat("#.##")
         df.roundingMode = RoundingMode.CEILING
         return df.format(value)
+    }
+
+    class Factory(private val product: Product) :
+        ViewModelProvider.NewInstanceFactory() {
+        override fun <T : ViewModel?> create(modelClass: Class<T>): T =
+            ProductPriceViewModel(product) as T
     }
 }
