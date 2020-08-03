@@ -1,6 +1,7 @@
 package com.example.datamerge.presentation.product_detail
 
 import android.view.View
+import android.widget.Toast
 import androidx.databinding.Bindable
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -52,6 +53,7 @@ class ProductDetailViewModel(private val product: Product) : BaseViewModel(), Vi
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.btn_add_to_cart -> {
+                Toast.makeText(v.context, "Product added to cart", Toast.LENGTH_SHORT).show()
                 addToCart()
             }
         }
@@ -59,13 +61,17 @@ class ProductDetailViewModel(private val product: Product) : BaseViewModel(), Vi
 
     override fun onIncrementClick(v: View?, quantity: Int) {
         // TODO Call to service to increment quantity
+        Toast.makeText(v?.context, "Increment", Toast.LENGTH_SHORT).show()
     }
 
     override fun onDecrementClick(v: View?, quantity: Int) {
-        // TODO Call to service to increment quantity
         if (quantity == 0) {
             // TODO Call to service to remove product
+            Toast.makeText(v?.context, "Remove product", Toast.LENGTH_SHORT).show()
             toggleButtonVisibility(true)
+        } else {
+            // TODO Call to service to increment quantity
+            Toast.makeText(v?.context, "Decrement", Toast.LENGTH_SHORT).show()
         }
     }
 
