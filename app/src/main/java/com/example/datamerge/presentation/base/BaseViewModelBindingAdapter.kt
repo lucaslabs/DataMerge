@@ -7,7 +7,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.example.datamerge.BR
 
-abstract class BaseViewModelBindingAdapter(
+open class BaseViewModelBindingAdapter(
     private val viewModel: BaseViewModel,
     private val layoutResId: Int
 ) : RecyclerView.Adapter<BaseViewModelBindingAdapter.ViewHolder>() {
